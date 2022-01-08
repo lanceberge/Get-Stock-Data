@@ -1,12 +1,13 @@
 #<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
-**Table of Contents**
+# Stock Data Retrieval
+
+## Table of Contents
 
 - [Stock Data Retrieval](#stock-data-retrieval)
     - [Example Use](#example-use)
     - [Dependencies](#dependencies)
 
 <!-- markdown-toc end -->
- Stock Data Retrieval
 
 ## Example Use
 
