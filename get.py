@@ -1,61 +1,79 @@
 import sys
 from yahoofinancials import YahooFinancials
 import yfinance as yf
-from math log, floor
+from math import log, floor
+import pandas as pd
 # import pandas_datareader as pdr
 
 # from https://stackoverflow.com/questions/3154460/python-human-readable-large-numbers
 def millify(n):
-    millnames = ['',' K',' M',' B',' T']
+    units = ['',' K',' M',' B',' T']
 
     n = float(n)
     k = 1000.0
     magnitude = int(floor(log(n, k)))
     return '%.2f%s' % (n / k**magnitude, units[magnitude])
 
-    # millidx = max(0,min(len(millnames)-1,
-    #                     int(math.floor(0 if n == 0 else math.log10(abs(n))/3))))
+def format_percent(n):
+    return "{:.2%}".format(n)
 
-    # return '{:.0f}{}'.format(n / 10**(3 * millidx), millnames[millidx])
+def print_items_in_dict(dict, items, names):
+    for item, name in zip(items, names):
+        val = dict.get(item)
+        print(f"{name}: {val}")
 
 def stock_info(ticker):
-    print(ticker+": ")
     stock = yf.Ticker(ticker)
     symbol = YahooFinancials(ticker)
 
-    print("Price: "     +str(symbol.get_current_price()))
-    print("Market cap: "+str(millify(symbol.get_market_cap())))
-    print("Dividend yield: "+"{:.2%}".format(symbol.get_dividend_yield()))
+    print(ticker+": ")
 
-    print("Major Holders: ")
-    print(stock.major_holders)
+    print("Key Statistics: ")
+    dict = symbol.get_key_statistics_data().get(ticker)
+    items = ["enterpriseToEbitda", "profitMargins", "sharesShort" , "priceToBook"]
+    names = ["EV / EBITDA"       , "Net Margins"  , "Short Shares", "P/B"]
 
-    print("Institutional: ")
-    print(stock.institutional_holders)
+    items += ["priceToSalesTrailing12Months", "forwardPE" , "beta"]
+    names += ["P/S"                         , "forward PE", "Beta"]
 
-    print("Balance Sheet: ")
-    print(stock.balance_sheet)
+    dict.update({'profitMargins': format_percent(dict.get('profitMargins'))})
+    dict.update({'sharesShort': millify(dict.get('sharesShort'))})
 
-    # TODO format - type is pd dataframe
-    print("Quarterly: ")
-    print(stock.quarterly_balance_sheet)
+    print_items_in_dict(dict, items, names)
 
-    print("Cash Flow: ")
-    print(stock.cashflow)
+    ev = dict.get("enterpriseValue")
 
-    print("Quarterly: ")
-    print(stock.quarterly_cashflow)
+    print("Price: "         +str(symbol.get_current_price()))
+    print("Market cap: "    +str(millify(symbol.get_market_cap())))
+    print("Dividend yield: "+format_percent(symbol.get_dividend_yield()))
 
-    print("Earnings: ")
-    print(stock.earnings)
+    # print("\nBalance Sheet: ")
+    # print(stock.balance_sheet)
 
-    print("Quarterly: ")
-    print(stock.quarterly_earnings)
+    # print("Quarterly: ")
+    # print(stock.quarterly_balance_sheet)
 
-    print("Events: ")
-    print(stock.calendar)
+    # print("Cash Flow: ")
+    # print(stock.cashflow)
 
-    # TODO could be useful
+    # print("Quarterly: ")
+    # print(stock.quarterly_cashflow)
+
+    # print("Earnings: ")
+    # print(stock.earnings)
+
+    # print("Quarterly: ")
+    # print(stock.quarterly_earnings)
+
+    # print("Events: ")
+    # print(stock.calendar)
+
+    # print("Major Holders: ")
+    # print(stock.major_holders)
+
+    # print("Institutional: ")
+    # print(stock.institutional_holders)
+
     # print("Info: ")
     # print(stock.info.items())
 
@@ -68,27 +86,13 @@ def stock_info(ticker):
     # print("Dividends: ")
     # print(stock.dividends)
 
-    # TODO could be useful
     # print("Financials: ")
     # print(stock.financials)
     # print("Quarterly: ")
     # print(stock.quarterly_financials)
 
-    # TODO useful if formatted
     # print("News: ")
     # print(stock.news)
-
-    ## balance sheet
-    # long-term debt
-    # cash
-    # assets
-    # liabilities
-
-    # insider ownership
-    # sales
-
-    # volume
-    # ev/ebitda
 
     ## over time data
     # print(pdr.get_data_yahoo(ticker))
