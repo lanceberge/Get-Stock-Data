@@ -1,4 +1,4 @@
-#<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 # Stock Data Retrieval
 
 ## Table of Contents
