@@ -1,8 +1,16 @@
-# Stock Data Retrieval
+#<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [Stock Data Retrieval](#stock-data-retrieval)
+    - [Example Use](#example-use)
+    - [Dependencies](#dependencies)
+
+<!-- markdown-toc end -->
+ Stock Data Retrieval
 
 ## Example Use
 
-```
+```bash
 $ python get.py AMZN GOOGL
 
 AMZN:
@@ -39,5 +47,5 @@ Dividend Yield:       None
 
 ## Dependencies
 
-pip install yahoofinancials
-pip install yfinance
+- pip install yahoofinancials
+- pip install yfinance
