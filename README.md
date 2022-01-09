@@ -43,7 +43,6 @@ P/S:                  None
 forward PE:           24.375914
 Beta:                 1.058286
 Dividend Yield:       None
-~/code/stock_data #
 ```
 
 ## Dependencies
