@@ -22,6 +22,10 @@ def format_percent(n):
 
 def print_nums(titles, nums):
     for title, num in zip(titles, nums):
+        # only use 2 decimal places of precision
+        if (isinstance(num, float)):
+            num = "%.2f" % num
+
         print("%-22s%-22s" % (title+': ', num))
 
 
