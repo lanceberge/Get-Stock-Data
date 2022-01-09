@@ -14,7 +14,7 @@ Retrieve various fundamental metrics for a stock
 ## Example Use
 
 ```bash
-$ python get.py GOOGL
+~/code/stock_data # python get.py GOOGL -q # -q shows quarterly stats
 
 GOOGL:
 
@@ -27,10 +27,10 @@ EV/EBITDA:            20.01
 Net Margins:          29.52%
 Short Shares:         2.06M
 P/B:                  7.45
-P/S:                  None
+P/S:                  7.60
 forward PE:           24.38
 Beta:                 1.06
-Dividend Yield:       None
+Dividend Yield:       N/A
 
 --------------------------------------------------------------------------------
 Balance Sheet:
@@ -96,6 +96,17 @@ Net Income               18.94B     18.52B     17.93B     15.23B
 Change In Cash           89.00M     -2.99B    157.00M      6.34B
 Repurchase of Stock     -12.61B    -12.80B    -11.39B     -7.90B
 Capital Expenditures     -6.82B     -5.50B     -5.94B     -5.48B
+```
+
+You can see quarterly breakdowns with the `-q` flag. You can choose which metrics to see
+with the `--metrics` flag (default metrics=all). For example:
+
+```
+~/code/stock_data # python get.py GOOGL -q --metrics=kbeq
+
+## Or
+
+~/code/stock_data # python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
 ```
 
 ## Dependencies
