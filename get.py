@@ -45,7 +45,7 @@ def print_nums(titles, nums):
 
 # print a dataframe with given rows, updating its index to new_index
 def print_df(df, rows=None, names=None):
-
+    """Print a millified dataframe, using only the rows in rows"""
     # slice rows if provided
     if rows is not None:
         df = pd.DataFrame(df, index=rows)
@@ -160,6 +160,8 @@ def print_cashflow(stock, ticker, quarterly=False):
 
 # of each ticker in sys.argv[1:]
 def main():
+    """parse command line args and output statistics accordingly"""
+
     if len(sys.argv) == 1:
         print("expected at least one ticker symbol, terminating")
         return
@@ -174,8 +176,12 @@ def main():
             quarterly = True
 
         # if the arg contains --metrics=
-        if '--metrics=' in arg:
-            metrics = arg.split('=')[1]
+        if arg.startswith('--metrics=') or arg.startswith('-m'):
+            if (arg.startswith('-m')):
+                metrics = arg[2:]
+
+            else:
+                metrics = arg.split('=')[1]
 
             if 'all' in metrics:
                 all_metrics=True

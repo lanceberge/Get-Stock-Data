@@ -102,10 +102,9 @@ You can see quarterly breakdowns with the `-q` flag. You can choose which metric
 with the `--metrics` flag (default metrics=all). For example:
 
 ```
+# All of these are equivalent:
+~/code/stock_data # python get.py GOOGL -q -mkbeq
 ~/code/stock_data # python get.py GOOGL -q --metrics=kbeq
-
-## Or
-
 ~/code/stock_data # python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
 ```
 
