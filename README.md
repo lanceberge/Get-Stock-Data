@@ -1,6 +1,8 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 # Stock Data Retrieval
 
+Retrieve various fundamental metrics for a stock
+
 ## Table of Contents
 
 - [Stock Data Retrieval](#stock-data-retrieval)
