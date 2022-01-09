@@ -45,7 +45,9 @@ Total Shareholder Equity    222.54B    201.44B    177.63B    152.50B
 
 ## Dependencies
 
-- pip install yahoofinancials
-- pip install yfinance
-- pip install pandas
-- pip install numpy
+| yahoofinancials |
+| yfinance        |
+| pandas          |
+| numpy           |
+
+pip install yahoofinancials yfinance pandas numpy
