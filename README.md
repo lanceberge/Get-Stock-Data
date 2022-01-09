@@ -45,6 +45,8 @@ Total Shareholder Equity    222.54B    201.44B    177.63B    152.50B
 
 ## Dependencies
 
+|                 |
+|--               |
 | yahoofinancials |
 | yfinance        |
 | pandas          |
