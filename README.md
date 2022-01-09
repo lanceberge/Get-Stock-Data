@@ -104,9 +104,9 @@ to `-m`. For example:
 
 ```
 # All of these are equivalent:
-~/code/stock_data # python get.py GOOGL -qmkbeq
-~/code/stock_data # python get.py GOOGL -q --metrics=kbeq
-~/code/stock_data # python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
+$ python get.py GOOGL -qmkbeq
+$ python get.py GOOGL -q --metrics=kbeq
+$ python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
 ```
 
 ## Dependencies
