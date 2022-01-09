@@ -14,7 +14,7 @@ Retrieve various fundamental metrics for a stock
 ## Example Use
 
 ```bash
-~/code/stock_data # python get.py GOOGL -q # -q shows quarterly stats
+$ python get.py GOOGL -q # -q shows quarterly stats
 
 GOOGL:
 
