@@ -35,11 +35,9 @@ def print_nums(titles, nums):
 
 
 def print_header(title, ticker):
-    print('\n'+ticker+": ")
-    print('-'*80)
+    print('\n'+'-'*80)
 
-    print(title+": ")
-    print('-'*(len(title)+1))
+    print(title+": \n")
 
 
 def key_statistics(ticker):
@@ -73,16 +71,16 @@ def key_statistics(ticker):
     print_nums(names, vals)
 
 
-def balance_sheet(ticker):
+def balance_sheet(ticker, quarterly=False):
     print_header("Balance Sheet", ticker)
 
     stock = yf.Ticker(ticker)
-    symbol = YahooFinancials(ticker)
 
     colnames = ['Total Assets', 'Cash', 'Intangible Assets', 'Inventory',
                 'Total Liab', 'Long Term Debt', 'Total Stockholder Equity']
 
-    df = stock.balance_sheet
+    df = stock.quarterly_balance_sheet if quarterly else stock.balance_sheet
+
     df = pd.DataFrame(df, index=colnames)
 
     # Update column names
@@ -103,6 +101,7 @@ def main():
 
     else:
         for ticker in sys.argv[1:]:
+            print('\n'+ticker+": ")
             ticker = ticker.upper()
             key_statistics(ticker)
             balance_sheet(ticker)
