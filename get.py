@@ -172,20 +172,22 @@ def main():
     # parse all the args that are flags
     for arg in sys.argv[1:]:
 
-        if arg == '-q':
+        if arg[0] != '-':
+            continue
+
+        if 'q' in arg:
             quarterly = True
 
         # if the arg contains --metrics=
-        if arg.startswith('--metrics=') or arg.startswith('-m'):
-            if (arg.startswith('-m')):
-                metrics = arg[2:]
+        if arg.startswith('--metrics=') or 'm' in arg:
+            if (arg.startswith('--metrics')):
+                metrics = arg.split('=')[1]
 
             else:
-                metrics = arg.split('=')[1]
+                metrics = arg[2:]
 
             if 'all' in metrics:
                 all_metrics=True
-                continue
 
             else:
                 all_metrics = False
@@ -207,10 +209,9 @@ def main():
 
         stock = yf.Ticker(ticker)
 
+        # call the metrics
         if all_metrics:
-
             key_statistics(ticker)
-
             print_balance_sheet(stock, ticker, quarterly)
             print_earnings(stock, ticker, quarterly)
             print_cashflow(stock, ticker, quarterly)

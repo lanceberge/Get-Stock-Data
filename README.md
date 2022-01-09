@@ -99,11 +99,12 @@ Capital Expenditures     -6.82B     -5.50B     -5.94B     -5.48B
 ```
 
 You can see quarterly breakdowns with the `-q` flag. You can choose which metrics to see
-with the `--metrics` flag (default metrics=all). For example:
+with the `--metrics` flag (default metrics=all). The `--metrics` flag is aliases
+to `-m`. For example:
 
 ```
 # All of these are equivalent:
-~/code/stock_data # python get.py GOOGL -q -mkbeq
+~/code/stock_data # python get.py GOOGL -qmkbeq
 ~/code/stock_data # python get.py GOOGL -q --metrics=kbeq
 ~/code/stock_data # python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
 ```
