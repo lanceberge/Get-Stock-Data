@@ -3,6 +3,9 @@
 
 Retrieve various fundamental metrics for a stock
 
+*Note*: Some of the reported values may be wrong due to the APIs. I've only noticed this so far with foreign stocks, for example the yahoofinancials API thinks BABA has a EV/EBITDA of 1.31.
+
+
 ## Table of Contents
 
 - [Stock Data Retrieval](#stock-data-retrieval)
@@ -25,7 +28,6 @@ Price:                2740.34
 Market cap:           1.82T
 EV/EBITDA:            20.01
 Net Margins:          29.52%
-Short Shares:         2.06M
 P/B:                  7.45
 P/S:                  7.60
 forward PE:           24.38

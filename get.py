@@ -83,11 +83,10 @@ def key_statistics(ticker):
 
     # update data to correct format
     dict.update({'profitMargins': format_percent(dict.get('profitMargins'))})
-    dict.update({'sharesShort': millify(dict.get('sharesShort'))})
 
     # keys in the dict we want to output
-    dict_keys = ["enterpriseToEbitda", "profitMargins", "sharesShort" , "priceToBook"]
-    names    += ["EV/EBITDA"         , "Net Margins"  , "Short Shares", "P/B"]
+    dict_keys = ["enterpriseToEbitda", "profitMargins", "priceToBook"]
+    names    += ["EV/EBITDA"         , "Net Margins"  , "P/B"]
 
     # add values from the dictionary to vals
     vals += [dict.get(key) for key in dict_keys]
@@ -147,8 +146,8 @@ def print_cashflow(stock, ticker, quarterly=False):
             "Repurchase Of Stock", "Capital Expenditures"]
 
     names = ["Investing Activities", "Financing Activities",
-                 "Operating Activities", "Net Income", "Change In Cash",
-                 "Repurchase of Stock", "Capital Expenditures"]
+             "Operating Activities", "Net Income", "Change In Cash",
+             "Repurchase of Stock", "Capital Expenditures"]
 
     print_header("Cash Flow", ticker)
     print_df(stock.cashflow, rows, names)
