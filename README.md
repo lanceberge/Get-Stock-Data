@@ -17,7 +17,7 @@ Retrieve various fundamental metrics for a stock
 ## Example Use
 
 ```bash
-$ python get.py GOOGL -q # -q shows quarterly stats
+$ ./get.py GOOGL -q # -q shows quarterly stats
 
 GOOGL:
 
@@ -106,9 +106,9 @@ to `-m`. For example:
 
 ```
 # All of these are equivalent:
-$ python get.py GOOGL -qmkbeq
-$ python get.py GOOGL -q --metrics=kbeq
-$ python get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
+$ ./get.py GOOGL -qmkbeq
+$ ./get.py GOOGL -q --metrics=kbeq
+$ ./get.py GOOGL -q --metrics=key_stats,balance_sheet,earnings,cash_flow
 ```
 
 ## Dependencies
