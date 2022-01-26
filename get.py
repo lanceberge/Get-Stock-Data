@@ -10,6 +10,7 @@ import numpy as np
 # from https://stackoverflow.com/questions/3154460/python-human-readable-large-numbers
 def millify(n):
     """Convert a number from 1000 -> 1K, 1000000 -> 1M, etc."""
+
     if n is None or np.isnan(n):
         return "N/A"
 
@@ -26,7 +27,6 @@ def millify(n):
     return '%.2f%s' % (n / k**magnitude, units[magnitude])
 
 
-# format a float as a percent
 def format_percent(n):
     """Format a float as a percent"""
     if (n is None):
@@ -37,6 +37,7 @@ def format_percent(n):
 
 def print_nums(titles, nums):
     """Print numbers with aligned columns (titles and nums)"""
+
     for title, num in zip(titles, nums):
         # only use 2 decimal places of precision
         if (isinstance(num, float)):
@@ -45,9 +46,9 @@ def print_nums(titles, nums):
         print("%-22s%-22s" % (title+': ', num))
 
 
-# print a dataframe with given rows, updating its index to new_index
 def print_df(df, rows=None, names=None):
     """Print a millified dataframe, using only the rows in rows"""
+
     # slice rows if provided
     if rows is not None:
         df = pd.DataFrame(df, index=rows)
@@ -62,8 +63,8 @@ def print_df(df, rows=None, names=None):
 
 def print_header(title, ticker):
     """print a heading"""
-    print('\n'+'-'*80)
 
+    print('\n'+'-'*80)
     print(title+": \n")
 
 
@@ -108,7 +109,6 @@ def key_statistics(ticker):
     print_nums(names, vals)
 
 
-# output the key statistics, balance sheet, earnings, and cash flow
 def print_balance_sheet(stock, ticker, quarterly=False):
     """print a stock's balance sheet"""
 
@@ -159,7 +159,6 @@ def print_cashflow(stock, ticker, quarterly=False):
         print_df(stock.quarterly_cashflow, rows, names)
 
 
-# of each ticker in sys.argv[1:]
 def main():
     """parse command line args and output statistics accordingly"""
 
